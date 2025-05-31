@@ -5,15 +5,16 @@ cd ~
 git clone https://github.com/itsyihsiu/dotfiles .dotfiles
 ```
 
-Run `:PlugInstall` to install plugins.
+## vim
 
+Run `:PlugInstall` to install plugins.
 
 brew install universal-ctags
 brew install the_silver_searcher
 
 #### Plugins
 
-1.  nerdcommenter
+1. nerdcommenter
 
 2. nerdtree
 
