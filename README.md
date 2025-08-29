@@ -2,7 +2,9 @@
 
 ```bash
 cd ~
-git clone https://github.com/itsyihsiu/dotfiles .dotfiles
+git clone https://github.com/itsyihsiu/dotfiles $HOME/.dotfiles
+cd ~/.dotfiles
+./install.sh
 ```
 
 ## vim
