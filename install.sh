@@ -10,6 +10,7 @@ FILES=(
   .tmux.conf
   .vim
   .tmux
+  .oh-my-zsh
 )
 
 for file in "${FILES[@]}"; do

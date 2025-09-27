@@ -4,6 +4,7 @@
 cd ~
 git clone https://github.com/itsyihsiu/dotfiles $HOME/.dotfiles
 cd ~/.dotfiles
+git submodule update --init --recursive
 ./install.sh
 ```
 
@@ -18,6 +19,19 @@ cd ~/.dotfiles
 ## zshrc
 
 - oh-my-zsh
+
+```
+git clone https://github.com/ohmyzsh/ohmyzsh.git .oh-my-zsh
+```
+
+`.zshrc`
+
+```
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+```
 
 ## vim
 
