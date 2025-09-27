@@ -23,3 +23,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # setup openjdk
 export PATH="/usr/local/opt/openjdk@21/bin:$PATH"
+
+alias la='ls -a'
+alias ll='ls -lha'
