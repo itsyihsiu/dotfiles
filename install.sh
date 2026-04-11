@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 # Set the source directory (where your dotfiles are stored)
-DOTFILES_DIR="$(pwd)"   # or replace with absolute path if you want
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$SCRIPT_DIR"
+
+# Initialize and update git submodules
+git submodule update --init --recursive
 
 # List of files/folders to symlink
 FILES=(
