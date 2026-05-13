@@ -5,7 +5,7 @@ source $ZSH/oh-my-zsh.sh
 
 # setup lang
 export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# export LC_ALL=en_US.UTF-8
 
 # setup default editor
 export EDITOR='vim'
@@ -14,7 +14,16 @@ export EDITOR='vim'
 export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 
 # setup zsh hash
-hash -d ws=/Users/yihsiu/ws
+export WS_DIR="$HOME/ws"
+hash -d ws="$WS_DIR"
+
+cd() {
+  if [[ $# -eq 1 && "$1" == "@ws" ]]; then
+    builtin cd "$WS_DIR"
+  else
+    builtin cd "$@"
+  fi
+}
 
 # setup nvm
 export NVM_DIR="$HOME/.nvm"
