@@ -22,7 +22,7 @@ cd() {
     builtin cd "$WS_DIR"
   else
     builtin cd "$@"
-  fi
+  fi && ls
 }
 
 # setup nvm
