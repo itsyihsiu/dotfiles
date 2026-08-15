@@ -27,14 +27,39 @@ alias la='ls -a'
 alias ll='ls -lha'
 alias lh='ls -lh'
 
-# setup zsh hash
-# export WS_DIR="$HOME/ws"
-# hash -d ws="$WS_DIR"
+# setup named directories
+
+typeset -A dirs
+
+dirs=(
+    ws "$HOME/ws"
+    work "$HOME/.local/notes/work"
+    life "$HOME/.local/notes/life"
+)
+
+for name dir in ${(kv)dirs}; do
+    hash -d $name="$dir"
+done
 
 cd() {
-  if [[ $# -eq 1 && "$1" == "@ws" ]]; then
-    builtin cd "$WS_DIR"
-  else
-    builtin cd "$@"
-  fi && ls
+    if (( $# == 1 )) && [[ "$1" == @* ]]; then
+        local name="${1#@}"
+        local target="${dirs[$name]}"
+
+        if [[ -n "$target" ]]; then
+            builtin cd "$target"
+        else
+            builtin cd "$@"
+        fi
+    else
+        builtin cd "$@"
+    fi && ls
 }
+
+# cd() {
+#     if [[ $# -eq 1 && "$1" == "@ws" ]]; then
+#         builtin cd "$HOME/ws"
+#     else
+#         builtin cd "$@"
+#     fi && ls
+# }
