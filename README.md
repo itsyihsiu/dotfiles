@@ -1,11 +1,8 @@
 # dotfiles
 
 ```bash
-cd ~
 git clone https://github.com/itsyihsiu/dotfiles $HOME/.dotfiles
-cd ~/.dotfiles
-git submodule update --init --recursive
-./install.sh
+$HOME/.dotfiles/install.sh
 ```
 
 ## config files
